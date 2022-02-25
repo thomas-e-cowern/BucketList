@@ -13,6 +13,7 @@
 		4168656727C9241500CAFEF7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168656627C9241500CAFEF7 /* Helpers.swift */; };
 		4168656927C9625000CAFEF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168656827C9625000CAFEF7 /* ContentView.swift */; };
 		4168656B27C9688500CAFEF7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168656A27C9688400CAFEF7 /* Location.swift */; };
+		4168656D27C97E4900CAFEF7 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168656C27C97E4800CAFEF7 /* EditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4168656627C9241500CAFEF7 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		4168656827C9625000CAFEF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4168656A27C9688400CAFEF7 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4168656C27C97E4800CAFEF7 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				4168656527C923FF00CAFEF7 /* Helpers */,
 				4168655727C91A6900CAFEF7 /* BucketListApp.swift */,
 				4168656827C9625000CAFEF7 /* ContentView.swift */,
+				4168656C27C97E4800CAFEF7 /* EditView.swift */,
 				4168656A27C9688400CAFEF7 /* Location.swift */,
 				4168655B27C91A7800CAFEF7 /* Assets.xcassets */,
 				4168655D27C91A7800CAFEF7 /* Preview Content */,
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4168656727C9241500CAFEF7 /* Helpers.swift in Sources */,
+				4168656D27C97E4900CAFEF7 /* EditView.swift in Sources */,
 				4168656B27C9688500CAFEF7 /* Location.swift in Sources */,
 				4168656927C9625000CAFEF7 /* ContentView.swift in Sources */,
 				4168655827C91A6900CAFEF7 /* BucketListApp.swift in Sources */,
