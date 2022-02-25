@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import LocalAuthentication
 
 struct Location: Identifiable {
     let id = UUID()
@@ -19,9 +20,9 @@ struct ContentView: View {
     @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 26.7, longitude: -80.0), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
     
     let locations = [
-        Location(name: "Juno Beach", coordinates: CLLocationCoordinate2D(latitude: 26.8, longitude: -80.0)),
-        Location(name: "Rosemary Square", coordinates: CLLocationCoordinate2D(latitude: 26.7084, longitude: -80.0)),
-        Location(name: "Home", coordinates: CLLocationCoordinate2D(latitude: 26.726, longitude: -80.11))
+        Location(name: "Juno Beach", coordinates: CLLocationCoordinate2D(latitude: 26.8798, longitude: -80.0534)),
+        Location(name: "Rosemary Square", coordinates: CLLocationCoordinate2D(latitude: 26.7084, longitude: -80.0570)),
+        Location(name: "Home", coordinates: CLLocationCoordinate2D(latitude: 26.72579, longitude: -80.11560))
     ]
     
     var loadingState = LoadingState.success
@@ -36,9 +37,20 @@ struct ContentView: View {
             FailedView()
         }
         
-        Map(coordinateRegion: $mapRegion)
+        Map(coordinateRegion: $mapRegion, annotationItems: locations) { location in
+            MapAnnotation(coordinate: location.coordinates) {
+                Circle()
+                    .stroke(.red, lineWidth: 3)
+                    .frame(width: 20, height: 20)
+                Text(location.name)
+                    .foregroundColor(.pink)
+            }
+        }
         
     }
+    
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
