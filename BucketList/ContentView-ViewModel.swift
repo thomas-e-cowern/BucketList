@@ -12,7 +12,7 @@ extension ContentView {
     @MainActor class ViewModel: ObservableObject {
         @Published var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 26.7, longitude: -80.0), span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
         
-        @Published private (set) var locations = [Location]()
+        @Published private (set) var locations: [Location]
         
         @Published var selectedPlace: Location?
         
@@ -27,11 +27,21 @@ extension ContentView {
             }
         }
         
+        func save () {
+            do {
+                let data = try JSONEncoder().encode(locations)
+                try data.write(to: savePath, options: [.atomicWrite, .completeFileProtection])
+            } catch {
+                print("Unable to save data...")
+            }
+        }
+        
         func addLocation () {
             let newLocation = Location(id: UUID(), name: "New Location", description: "", latitude: mapRegion.center.latitude, longitude: mapRegion.center.longitude)
             
             // add to array of locations
             locations.append(newLocation)
+            save()
         }
         
         func updateLocation(location: Location) {
@@ -42,6 +52,7 @@ extension ContentView {
             
             if let index = locations.firstIndex(of: selectedPlace) {
                 locations[index] = location
+                save()
             }
         }
     }
