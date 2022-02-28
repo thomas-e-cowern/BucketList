@@ -7,6 +7,7 @@
 
 import Foundation
 import MapKit
+import LocalAuthentication
 
 extension ContentView {
     @MainActor class ViewModel: ObservableObject {
@@ -55,6 +56,32 @@ extension ContentView {
             if let index = locations.firstIndex(of: selectedPlace) {
                 locations[index] = location
                 save()
+            }
+        }
+        
+        func authentiate () {
+            let context = LAContext()
+            var error: NSError?
+            
+            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                // Touch ID reason
+                let reason = "Please authenticate yourself to unlock your saved places"
+                
+                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                    if success {
+                        // success condition
+                        Task { @MainActor in
+                            self.isUnlocked = true
+                        }
+                    } else {
+                        // error condtion
+                        
+                        
+                    }
+                    
+                }
+            } else {
+                // No biometrics show alert or passcode
             }
         }
     }
