@@ -10,7 +10,7 @@ import MapKit
 
 struct ContentView: View {
     
-    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 26.7, longitude: -80.0), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 26.7, longitude: -80.0), span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
     
     @State private var locations = [Location]()
     
@@ -29,6 +29,7 @@ struct ContentView: View {
                             .clipShape(Circle())
                         
                         Text(location.name)
+                            .fixedSize()
                     }
                     .onTapGesture {
                         selectedPlace = location
