@@ -16,6 +16,8 @@ extension ContentView {
         
         @Published var selectedPlace: Location?
         
+        @Published var isUnlocked: Bool = false
+        
         let savePath = FileManager.documentDirectory.appendingPathComponent("SavedPlaces")
         
         init () {
